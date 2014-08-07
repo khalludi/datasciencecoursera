@@ -37,14 +37,12 @@ best <- function(state, outcome) {
   ## Return hospital name in that state with lowest 30-day death
   ## rate
   state_data <- subset(my_data, State == my_state)
-  if (nrow(state_data) == 0) {
+  if (as.numeric(nrow(state_data)) == 0) {
     return(0)
   }
   else {
     for (j in 1:nrow(state_data)) {
-      #return(state_data[j, outcome])
-      x <- state_data[j, outcome]
-      if (x < rate) {
+      if (as.numeric(levels(state_data[2, 11]) < rate) {
         rate <- state_data[j,outcome]
       }
     }
