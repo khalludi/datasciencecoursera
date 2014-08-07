@@ -1,5 +1,6 @@
 best <- function(state, outcome) {
   my_state <- ""
+  rate <- 30.0
   
   ## Read outcome data
   my_data <- read.csv("outcome-of-care-measures.csv")
@@ -18,15 +19,15 @@ best <- function(state, outcome) {
   
   ## Check that outcome is valid
   if (outcome == "heart attack") {
-    outcome <- 13
+    outcome <- 11
   }
   
   else if (outcome == "heart failure") {
-    outcome <- 19
+    outcome <- 17
   }
   
   else if (outcome == "pneumonia") {
-    outcome <- 25
+    outcome <- 23
   }
   
   else {
@@ -35,5 +36,19 @@ best <- function(state, outcome) {
   
   ## Return hospital name in that state with lowest 30-day death
   ## rate
+  state_data <- subset(my_data, State == my_state)
+  if (nrow(state_data) == 0) {
+    return(0)
+  }
+  else {
+    for (j in 1:nrow(state_data)) {
+      #return(state_data[j, outcome])
+      x <- state_data[j, outcome]
+      if (x < rate) {
+        rate <- state_data[j,outcome]
+      }
+    }
+  }
   
+  return(rate)
 }
