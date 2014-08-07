@@ -40,13 +40,20 @@ best <- function(state, outcome) {
   if (as.numeric(nrow(state_data)) == 0) {
     return(0)
   }
-  else {
-    for (j in 1:nrow(state_data)) {
-      if (as.numeric(levels(state_data[2, 11]) < rate) {
-        rate <- state_data[j,outcome]
-      }
+  
+  ## Finds lowest rate of death
+  outcomeCol <- as.numeric(paste(state_data[,outcome]))
+  outcomeCol <- na.omit(outcomeCol)
+  for (k in outcomeCol) {
+    print(c(k, rate))
+    if (k < rate) {
+      rate <- k
     }
   }
   
+  ## Find and return hospital name
+  
+  
   return(rate)
 }
+
