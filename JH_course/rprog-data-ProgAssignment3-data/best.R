@@ -1,6 +1,8 @@
 best <- function(state, outcome) {
   my_state <- ""
   rate <- 30.0
+  idx <- 0
+  h_idx <- c()
   
   ## Read outcome data
   my_data <- read.csv("outcome-of-care-measures.csv")
@@ -48,11 +50,13 @@ best <- function(state, outcome) {
     print(c(k, rate))
     if (k < rate) {
       rate <- k
+      h_idx <- c(h_idx, idx)
     }
+    idx <- idx + 1
   }
   
   ## Find and return hospital name
-  
+  state_data[]
   
   return(rate)
 }
