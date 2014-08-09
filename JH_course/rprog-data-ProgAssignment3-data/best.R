@@ -44,7 +44,7 @@ best <- function(state, outcome) {
   }
   
   ## Finds lowest rate of death
-  outcomeCol <- as.numeric(paste(state_data[,outcome]))
+  suppressWarnings(outcomeCol <- as.numeric(paste(state_data[,outcome])))
   outcomeCol <- na.omit(outcomeCol)
   for (k in outcomeCol) {
     if (k < rate) {
@@ -61,8 +61,7 @@ best <- function(state, outcome) {
   }
   
   possible_o <- sort(possible_o)
-  print(possible_o)
-  
+    
   return(possible_o[1])
 }
 
