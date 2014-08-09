@@ -1,7 +1,7 @@
 best <- function(state, outcome) {
   my_state <- ""
   rate <- 30.0
-  idx <- 0
+  idx <- 1
   h_idx <- c()
   
   ## Read outcome data
@@ -21,15 +21,15 @@ best <- function(state, outcome) {
   
   ## Check that outcome is valid
   if (outcome == "heart attack") {
-    outcome <- 11
+    outcome <- 13
   }
   
   else if (outcome == "heart failure") {
-    outcome <- 17
+    outcome <- 19
   }
   
   else if (outcome == "pneumonia") {
-    outcome <- 23
+    outcome <- 25
   }
   
   else {
@@ -47,7 +47,6 @@ best <- function(state, outcome) {
   outcomeCol <- as.numeric(paste(state_data[,outcome]))
   outcomeCol <- na.omit(outcomeCol)
   for (k in outcomeCol) {
-    print(c(k, rate))
     if (k < rate) {
       rate <- k
       h_idx <- c(h_idx, idx)
@@ -56,8 +55,14 @@ best <- function(state, outcome) {
   }
   
   ## Find and return hospital name
-  state_data[]
+  possible_o <- c()
+  for (l in h_idx) {
+    possible_o <- c(as.character(paste(state_data[l,2])), possible_o)
+  }
   
-  return(rate)
+  possible_o <- sort(possible_o)
+  print(possible_o)
+  
+  return(possible_o[1])
 }
 
