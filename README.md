@@ -1,4 +1,4 @@
-datasciencecoursera
+Run_Analysis.R
 ===================
 
-My coursera data science courses experience.
+The first part of the run_analysis.R reads the feature.txt, test dataset x, test dataset y, train dataset x, and train dataset y. Also set column names from feature.txt to character instead of factor. Add test dataset y to test dataset x and move the column to the beginning. Do the same for the train dataset. Then merge the test dataset and train data set by merging same name columns to create a merged dataset. Set column labels in merged dataset. After that, search for and save the indices of mean, std, and activity in the column names. Create a new dataset by selecting those column indices. Then, set the activity labels by in the first column with a for loop. The for loop will go over the first column, activity, and then check with if statements to choose the correct label. After that, create the final dataframe with just the activity labels for now. Set activity labels into a vector. Then, in a for loop, I search for the idices of the activity labels. Then, I manually get the mean of the the columns and assign the mean to a vector. Finally I assign the final values to the final dataset. At the end, I get the column names by the previous column indices I stored and assign them into the final dataset. 
