@@ -47,9 +47,9 @@ for (x in new_data[,1]) {
   idx <- idx + 1
 }
 
+ac_labels <- c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")
 final_data <- new_data
 FINAL <- data.frame(ac_labels)
-ac_labels <- c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")
 
 for (i in 1:6) {
   vec <- c()
