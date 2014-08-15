@@ -7,5 +7,5 @@ my_data <- data[vec,]
 row.names(my_data) <- NULL
 
 png(file = "plot1.png")
-hist(my_data$Global_active_power,col='#ff2500',xlab='Global Active Power (Kilowatts)',main = "Global Active Power")
+hist(as.numeric(paste(my_data$Global_active_power)), col='#ff2500', xlab='Global Active Power (Kilowatts)', main = "Global Active Power")
 dev.off()
