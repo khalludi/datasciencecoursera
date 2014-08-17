@@ -36,6 +36,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     path <- paste(directory, "/", add, id[i], ".csv",sep="")
     mydata<-read.csv(path)
     new_data <- na.omit(mydata)
+    
+    print(nrow(new_data))
+    
     totalvec <- c(new_data[,pollutant], totalvec)
     
     i<-i+1
@@ -46,4 +49,4 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 
 #pollutantmean("specdata", "sulfate", 1:10)
 #pollutantmean("specdata", "nitrate", 70:72)
-pollutantmean("specdata", "nitrate", 23)
+pollutantmean("specdata", "sulfate", 1)
